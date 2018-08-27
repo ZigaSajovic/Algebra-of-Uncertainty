@@ -1,0 +1,693 @@
+\input{../latexCommon/preamble.tex}
+
+\title[Algebra of Uncertainty]{Algebra of Uncertainty}
+
+\begin{document}
+
+% Add why subjective probability, as to discern on the ability to quantify uncertainty in a an opinion (question from X on first lectures)
+
+\input{../latexCommon/titleSlide.tex}
+
+\begin{frame}{Quantifying the degrees of belief}
+\begin{minipage}[]{\linewidth}
+We can quantify our beliefs about an uncertain event $A$ by being willing to trade them for a possibility of something quantifiable.
+\end{minipage}
+\vfill
+\begin{minipage}[]{\linewidth}
+\begin{minipage}[]{0.45\linewidth}
+{\textbf{The buy}}
+We are willing to trade certainly giving out the quantity $\pr{A}$ in exchange for a \emph{ticket} that's redeemable for \emph{one unit} of the quantity, in case $A$ holds true.
+
+\end{minipage}
+\hfill
+\begin{minipage}[]{0.45\linewidth}
+{\textbf{The sell}}
+We are willing to trade a \emph{ticket} that's redeemable for \emph{one unit} of the quantity in case $A$ holds true, in exchange for certainly receiving the quantity $\pr{A}$.
+\end{minipage}
+\end{minipage}
+\vfill
+\begin{minipage}[]{\linewidth}
+The quantity being traded may be anything that's quantifiable to us. Note that we sell and buy tickets on $A$ at the same price $\pr{A}$.
+\end{minipage}
+\end{frame}
+
+\begin{frame}{The Dutch Book ($\D$)}
+\begin{minipage}[]{\linewidth}
+The term \emph{dutch book} ($\D$) labels a quantification of our beliefs about events $A_i$, by which any possible trade based on such beliefs will result in our \emph{loss}, regardless of the truth attached to the final outcome.
+\end{minipage}
+\vfill
+\begin{minipage}[]{\linewidth}
+\begin{minipage}[]{0.45\linewidth}
+With quantifiable subjective beliefs, the term is widely applicable.\bigskip
+
+{\textbf{Ex.:}} in econometrics $\D$ is a trade leaving one party strictly worse off.
+\end{minipage}
+\hfill
+\begin{minipage}[]{0.45\linewidth}
+{\textbf{Ex.:}} in courtship $\D$ could be a set of beliefs about the opposite sex, that leads to a sequence of interactions that always leaves you rejected and alone.% in the friend-zone.
+\end{minipage}
+\end{minipage}
+\end{frame}
+
+\begin{frame}{Coherence for disjoint events}
+\begin{minipage}[]{\linewidth}
+\begin{minipage}[]{0.55\linewidth}
+{\textbf{Elements of discussion}}
+%\setbeamertemplate{description item}[align left]
+\begin{itemize}\itemsep0.8em
+\item[$A_i$]
+is the set of disjoint events $A_i$
+%$$\forall_{i\ne j}(A_i\cap A_j=\emptyset)$$
+\item[$P$] are the prices $\pr{A_i}$ of the ticket on $A_i$
+\item[$\C$] is the set of rules $R_i$
+\end{itemize}
+\end{minipage}
+\hfill
+\begin{minipage}[]{0.3\linewidth}
+\centering
+$$
+\C
+=
+% \begin{pmatrix}
+% R_1,\\
+% R_2,\\
+% \vdots\\
+% R_n
+% \end{pmatrix}
+\left\{\!\begin{matrix}
+R_1, \\[1ex]
+R_2, \\[1ex]
+\vdots \\[1ex]
+R_n
+\end{matrix}\right\}
+\quad
+$$
+\end{minipage}
+\end{minipage}
+\vfill
+\begin{minipage}[]{\linewidth}
+We seek a coherent set of rules $\C$ by which to prescribe prices $\pr{A_i}$ to events $A_i$ in a way that prevents the possibility of being in a dutch book $\D$,
+$$\C\iff\neg\D.$$
+\end{minipage}
+\end{frame}
+
+\begin{frame}{Constructing the argument}
+\begin{minipage}[]{0.3\linewidth}
+$$
+\C\iff\neg \D
+\sim
+\begin{cases}
+\C\impliedby\neg\D \\
+\C\implies\neg\D
+\end{cases}
+$$
+\end{minipage}
+\hfill
+\begin{minipage}[]{0.5\linewidth}
+\begin{itemize}\itemsep1.2em
+\item[$\impliedby$] If it is impossible for us to be in a dutch book ($\D$), then we must have been coherent ($\C$).
+
+
+\item[$\implies$] If we are coherent ($\C$), then we cannot end up in a dutch book ($\D$).
+\end{itemize}
+\end{minipage}
+\end{frame}
+
+\begin{frame}{$\C\impliedby\neg\D$}
+This statement is easier to frame as a story, so we being with it, to build our intuition and the set of rules itself.
+
+$$\C\impliedby\neg\D$$
+$$\iff$$
+$$\neg\C\implies\D$$
+
+By way of contrapositive, we can prove that by not being coherent ($\C$) we can end up in a dutch book ($\D$).
+\end{frame}
+
+\begin{frame}{$\neg\C\implies\D;\quad$ non-negativity and certain ($A_{C}$) events}
+
+
+\begin{minipage}[]{\linewidth}
+\begin{minipage}[]{0.45\linewidth}
+{\textbf{Any event$\implies \pr{A}\ge0$}}
+ \\
+Imagine \emph{You} sell me a ticket for $A$ at price $-p<0$. No mater what happens, your loss is at least $p$.
+
+Thus
+$$\pr{A}<0\implies\D$$
+\end{minipage}
+\hfill
+\begin{minipage}[]{0.45\linewidth}
+{\centering\textbf{A is certain$\implies\pr{A}=1$}}
+ \\
+Imagine \emph{You} sell me a ticket for $A$ at price $p<1$. No mater what happens, your loss is at least $1-p$.
+
+Thus
+
+$$\pr{A_{C}}\ne1\implies\D$$
+
+\end{minipage}
+
+% \vfill
+
+% \begin{minipage}[]{\linewidth}
+% A direct consequence of 
+% %\centering
+% % {\textbf{Any event$\implies \pr{A}\ge0$}}
+
+% % Imagine \emph{You} sell me a ticket for $A$ at price $-p<0$. Your loss is at least $p$.
+% % \vspace{-5px}$$\pr{A}<0\implies\D$$
+% \end{minipage}
+\end{minipage}
+
+\end{frame}
+
+\begin{frame}{$\neg\C\implies\D;\quad$ finite additivity ($FA_>$)}
+
+% $A_1\cap A_2=\emptyset\implies\pr{A_1\cup A_2}=\pr{A_1}+\pr{A_2}$
+
+\begin{minipage}[]{0.45\linewidth}
+\begin{minipage}[]{\linewidth}
+%\centerline{$\bm{\neg FA_>}$}
+{$\bm{\underbrace{\pr{A_1\cup A_2}>\pr{A_1}+\pr{A_2}}_{\neg FA_>}}$}
+\bigskip
+
+Imagine \emph{You} buy from me a ticket for $A_1\cup A_2$ at a price $p$ and sell me tickets for both $A_1$ and $A_2$ at a price $p_1+p_2$. 
+\end{minipage}
+\vfill
+\bigskip
+\begin{minipage}[]{\linewidth}
+Thus
+$$\neg FA_>\implies \D$$
+\end{minipage}
+\end{minipage}
+\hfill
+\begin{minipage}[]{0.45\linewidth}
+\begin{itemize}\itemsep1.2em
+\item If neither event happens there is no payout and the net loss is the price of the tickets
+$$-p+p_1+p_2<0$$
+
+\item If either $A_i$ happens we both pay each other $1$, with net loss being the same
+$$-p+p_1+p_2+1-1<0$$
+
+\end{itemize}
+\end{minipage}
+
+\end{frame}
+
+\begin{frame}{$\neg\C\implies\D;\quad$ finite additivity ($FA_<$)}
+
+% $A_1\cap A_2=\emptyset\implies\pr{A_1\cup A_2}=\pr{A_1}+\pr{A_2}$
+
+\begin{minipage}[]{0.45\linewidth}
+\begin{minipage}[]{\linewidth}
+%\centerline{$\bm{\neg FA_<}$}
+{$\bm{\underbrace{\pr{A_1\cup A_2}<\pr{A_1}+\pr{A_2}}_{\neg FA_<}}$}
+\bigskip
+
+Imagine \emph{You} sell me a ticket for $A_1\cup A_2$ at price a $p$ and buy from me tickets for both $A_1$ and $A_2$ at a price $p_1+p_2$. 
+\end{minipage}
+\vfill
+\bigskip
+\begin{minipage}[]{\linewidth}
+Thus
+$$\neg FA_<\implies \D$$
+\end{minipage}
+\end{minipage}
+\hfill
+\begin{minipage}[]{0.45\linewidth}
+\begin{itemize}\itemsep1.2em
+\item If neither event happens there is no payout and the net loss is the price of the tickets
+$$-p_1-p_2+p<0$$
+
+\item If either $A_i$ happens we both pay each other $1$, with net loss being the same
+$$-p_1-p_2+p+1-1<0$$
+
+\end{itemize}
+\end{minipage}
+
+\end{frame}
+
+\begin{frame}{$\neg\C\implies\D;\quad$ finite additivity ($FA$)}
+\begin{minipage}{\linewidth}
+\begingroup
+\setlength{\belowdisplayskip}{2pt}
+{$$\bm{\underbrace{\pr{A_1\cup A_2}=\pr{A_1}+\pr{A_2}}_{FA}}$$}
+\endgroup
+\end{minipage}
+\vfill
+\begin{minipage}[]{0.45\linewidth}
+\begingroup
+\setlength{\abovedisplayskip}{3pt}
+\setlength{\belowdisplayskip}{3pt}
+% \centerline{$\bm{FA}$}
+% {$\bm{\pr{A_1\cup A_2}=\pr{A_1}+\pr{A_2}}$}
+
+Combining the two arguments,
+$$\neg FA_<\land \neg FA_<\iff \neg FA$$
+we arrive at the conclusion
+$$\pr{A_1\cup A_2}\ne\pr{A_1}+\pr{A_2}$$
+$$\implies\D$$
+stating that a lack of finite additivity, leads to a dutch book.
+\endgroup
+\end{minipage}
+\hfill
+\begin{minipage}[]{0.45\linewidth}
+By induction, the argument is easily extended to any finite number of disjoint events
+$$\pr{\cup_{i=0}^N A_i}\ne\sum_{i=0}^N \pr{A_i}\implies\D$$
+Thus
+$$\neg FA\implies \D$$
+\end{minipage}
+
+\end{frame}
+
+\begin{frame}{$\C\impliedby\neg\D$ proven by contrapositive}
+\begin{minipage}[]{\linewidth}
+\begin{minipage}[]{0.45\linewidth}
+$$\pr{A}<0\implies\D$$
+$$\pr{A_{C}}\ne1\implies\D$$
+$$\neg FA\implies \D$$
+\end{minipage}
+\hfill
+\begin{minipage}{0.05\linewidth}
+\centering
+$$\iff$$
+\end{minipage}
+\hfill
+\begin{minipage}[]{0.45\linewidth}
+$$\pr{A}\ge0\impliedby\neg\D$$
+$$\pr{A_{C}}=1\impliedby\neg\D$$
+$$FA\impliedby \neg\D$$
+\end{minipage}
+\end{minipage}
+\vfill
+\begin{minipage}{\linewidth}
+Collecting the rules into a set
+\vspace{-7px}
+$$\C=\{\pr{A}\ge0,\pr{A_{C}}=1, FA\},$$
+
+\vspace{-7px}we state that if it is impossible to end up in a dutch book then the set of rules $\C$ must have been obeyed when making the trade,
+\vspace{-5px}
+$$\C\impliedby\neg\D.$$
+\end{minipage}
+\end{frame}
+
+\begin{frame}{$\C\implies\neg\D;\quad$ Describing the trades}
+\begin{minipage}{\linewidth}
+\begin{minipage}[]{0.45\linewidth}
+{\centering\textbf{Tickets bought for $p_i$}}
+\begin{itemize}\itemsep0.5em
+\item[$A_i$] If $A_i$ occurred your payout for $\alpha_i$ tickets is $\alpha_i(1-p_i)$.
+\item[$\neg A_i$] If $\neg A_i$ occurred your payout for $\alpha_i$ tickets is $\alpha_i(-p_i)$.
+\end{itemize}
+\end{minipage}
+\hfill
+\begin{minipage}[]{0.45\linewidth}
+{\centering\textbf{Tickets sold for $p_i$}}
+\begin{itemize}\itemsep0.5em
+\item[$A_i$] If $A_i$ occurred your payout for $\beta_i$ tickets is $-\beta_i(1-p_i)$.
+\item[$\neg A_i$] If $\neg A_i$ occurred your payout for $\beta_i$ tickets is $\beta_ip_i$.
+\end{itemize}
+\end{minipage}
+\end{minipage}
+\vfill
+\begin{minipage}{\linewidth}
+After allowing trades on all events, our winnings are described by
+\vspace{-5px}
+$$W=\sum_{i=1}^N\lambda_i(I_{A_i}-p_i)$$
+
+\vspace{-5px}where $\lambda_i=\alpha_i-\beta_i$ (or $0$ if no trades on $A_i$) and $I_{A_i}$ is the indicator of $A_i$.
+\end{minipage}
+\end{frame}
+
+\begin{frame}{$\C\implies\neg\D;\quad$ The expected payout}
+\begin{minipage}{\linewidth}
+\begin{minipage}[]{0.45\linewidth}
+Noting that the expectation of an indicator of $A_i$
+$$E(I_{A_i})=\sum_{k=1}^Np_kI_{A_i}(A_k)=p_i$$
+is its probability, we see that the expected payout is $E(W)=0$.
+\end{minipage}
+\hfill
+\begin{minipage}[]{0.45\linewidth}
+\begin{equation*}
+\begin{split}
+E(W) & =E(\sum_{i=1}^N\lambda_i(I_{A_i}-p_i))\\
+& =\sum_{i=1}^NE(\lambda_i(I_{A_i}-p_i)) \\
+& =\sum_{i=1}^N\lambda_iE(I_{A_i}-p_i) \\
+& = 0
+\end{split}
+\end{equation*}
+\end{minipage}
+\end{minipage}
+\end{frame}
+
+\begin{frame}{$\C\implies\neg\D;\quad$ A supportive theorem on expectations}
+
+\begin{theorem}
+If $X$ is a non-trivial random variable, then
+$$\min{X}=x_{min}<E(X)<\max{X}=x_{max}.$$
+\end{theorem}
+\begin{proof}
+$$\min{X}=x_{min}=\sum_{i=0}^np_ix_{min}<E(X)<\sum_{i=0}^np_ix_{max}=x_{max}=\max{X}$$
+\end{proof}
+\end{frame}
+
+\begin{frame}{$\C\implies\neg\D;\quad$ An immediate corollary}
+
+\begin{corollary}[]
+If X is non-trivial, there is some positive probability $\epsilon_1 > 0$ that $X$
+exceeds its expectation $E(X)$ by a fixed amount $\eta_1 > 0$, and positive probability $\epsilon_2 > 0$ that
+$E(X)$ exceeds $X$ by a fixed amount $\eta_2 > 0$.
+\end{corollary}
+\begin{proof}
+Denote by $p_1$ the probability of $x_{min}$ and $p_2$ the probability of $x_{max}$. Than $\eta_1=x_{max}-E(X)>0$ and $\eta_2=E(X)-x_{min}>0$, with $\epsilon_1=p_1$ and $\epsilon_2=p_2$.
+\end{proof}
+\end{frame}
+
+\begin{frame}{$\C\implies\neg\D;\quad$ Implications of $E(W)$}
+\begin{minipage}{\linewidth}
+\begin{minipage}[]{0.45\linewidth}
+{\textbf{Implications of the $E(W)=0$}}
+\begin{itemize}\itemsep0.5em
+\item Either $W$ is trivial and there is no uncertainty, no gambles and no loss, or
+\item there is a positive probability $\epsilon$, that you will gain at least the amount $\eta$, as by Corollary, i.e. no dutch book.
+\end{itemize}
+\end{minipage}
+\hfill
+\begin{minipage}[]{0.45\linewidth}
+$$\bm{E(W)=0\implies \neg\D}$$
+The calculation of the expected payout was dependent on the rules of probability which coincide with the rules of coherence $\C$. Thus
+
+$$\C\implies\neg\D,$$
+
+proving the statement.
+\end{minipage}
+\end{minipage}
+\end{frame}
+
+\begin{frame}{$\C\iff\neg\D;\quad$ Theorem of Coherence}
+\begin{minipage}[]{0.5\linewidth}
+{\textbf{Theorem} (Coherence)}
+Your prices $\pr{A_i}$ at which you are willing to buy and sell tickets cannot lead you into a dutch book if and only if they are coherent,
+
+$$\C\iff\neg\D.$$
+\end{minipage}
+\hfill
+\begin{minipage}[]{0.3\linewidth}
+\centering
+$$
+\C
+=
+\left\{\!\begin{matrix}
+\pr{A_i}\ge0, \\[1ex]
+\pr{A_{C}}=1, \\[1ex]
+FA
+\end{matrix}\right\}
+\quad
+$$
+\end{minipage}
+\end{frame}
+
+\begin{frame}{Coherence for joint and conditional events ($\C^*$)}
+\begin{minipage}{\linewidth}
+With coherent views on disjoint events, we seek to quantify our conditional beliefs through joint and conditional trades.
+\end{minipage}
+\vfill
+\begin{minipage}{\linewidth}
+\begin{minipage}{0.45\linewidth}
+{\textbf{The conditional trade on $A_1|A_2$}}
+
+Given the outcome
+\begin{itemize}
+\item[$A_2$]$\sim$ the ticket is:
+\begin{itemize}
+\item[$A_1$] $\sim$ redeemable for a unit of the quantity
+\item[$\neg A_1$] $\sim$ worth nothing, or
+\end{itemize} 
+\item[$\neg A_2$]$\sim$ the trade is annulled.
+\end{itemize}
+\end{minipage}
+\hfill
+\begin{minipage}{0.45\linewidth}
+\begin{minipage}{\linewidth}
+{\textbf{The trade on disjoint $A_i$}}
+
+The prices $\pr{A_i}$ are assumed to be coherent ($\C$).
+\end{minipage}
+\vfill
+\bigskip
+\begin{minipage}{\linewidth}
+{\textbf{The joint trade on $A_1A_2$}}
+
+The trades are priced as if $A_1A_2$ was a single event $\tilde{A}$.
+
+\end{minipage}
+\end{minipage}
+\end{minipage}
+\vfill
+\begin{minipage}{\linewidth}
+But we need additional rules $\C^*=\C\cup\{R_i\}$ to avoid being in a dutch book.
+\end{minipage}
+\end{frame}
+
+\begin{frame}{$\C^*\impliedby\neg\D;\quad$ The space of possible outcomes of a trade}
+\begin{minipage}{\linewidth}
+\begin{minipage}{\linewidth}
+\begingroup
+\setlength{\abovedisplayskip}{3pt}
+\setlength{\belowdisplayskip}{3pt}
+$$W_1=\lambda_1(1-\pr{A_1A2})+\lambda_2(1-\pr{A_2})+\lambda_3(1-\pr{A_1|A_2})$$
+$$W_2=-\lambda_1\pr{A_1A2}+\lambda_2(1-\pr{A_2})-\lambda_3\pr{A_1|A_2}$$
+$$W_3=-\lambda_1\pr{A_1A2}-\lambda_2\pr{A_2}$$
+\endgroup
+\end{minipage}
+\vfill
+
+\bigskip
+\begin{minipage}{\linewidth}
+\begin{minipage}{0.4\linewidth}
+The possible payouts are:
+\begin{itemize}\itemsep0.5em
+\item[$W_1$] if $A_1$ and $A_2$ happen, \\
+\item[$W_2$]  if $\neg A_1$ and $A_2$ happen, \\
+\item[$W_3$] if $A_2$ does not happen.
+\end{itemize}
+\end{minipage}
+\hfill
+\begin{minipage}{0.5\linewidth}
+\bigskip
+It is clear that we need such prices $P$, that it is impossible to uniquely determine such trades ${\lambda_j}$, that the payout $W_i$ is a loss in any outcome.
+$$\exists_{\lambda_j}\forall{_i}(W_i<0)\iff\D$$
+\end{minipage}
+\end{minipage}
+\end{minipage}
+\end{frame}
+
+\begin{frame}{$\C^*\impliedby\neg\D;\quad$ On solutions of linear equations}
+\begin{minipage}{\linewidth}
+\begin{minipage}{0.4\linewidth}
+Three planes can intersect in
+\begin{itemize}
+\item[$0.$] a unique point,\\
+\item[$1.$] a line,\\
+\item[$2.$] a plane,\\
+\item[$3.$] or do not intersect.
+\end{itemize}
+\end{minipage}
+\hfill
+\begin{minipage}{0.6\linewidth}
+\begin{equation*}
+M\cdot\vec{\lambda}=\vec{W}
+\left\{\!
+\begin{aligned}
+a\lambda_1+b\lambda_2+c\lambda_3&=&W_1\\
+d\lambda_1+e\lambda_2+f\lambda_3&=&W_2\\
+g\lambda_1+h\lambda_2+i\lambda_3&=&W_3
+\end{aligned}
+\right.
+\end{equation*}
+\end{minipage}
+\end{minipage}
+\vfill
+\begin{minipage}{\linewidth}
+The $0.$ scenario is the only one that would allow \emph{Them} to uniquely determine the needed trades $\lambda_i$ to put \emph{Us} in a dutch book. Thus
+$$\det(M)\ne0\implies\D.$$
+\end{minipage}
+\end{frame}
+
+\begin{frame}{$\C^*\impliedby\neg\D;\quad$ The impossibility of a solution}
+\begin{minipage}{\linewidth}
+$$
+\resizebox{0.95\hsize}{!}{
+$
+\begin{vmatrix}
+1-\pr{A_1A_2}&1-\pr{A_2}&1-\pr{A_1|A_2}\\
+-\pr{A_1A2}&1-\pr{A_2}&-\pr{A1|A_2}\\
+-\pr{A_1}&-\pr{A_2}&0\\
+\end{vmatrix}
+=
+\pr{A_1A_2}-\pr{A_1|A_2}\cdot\pr{A_2}
+$
+}
+$$
+\end{minipage}
+\vfill
+\begin{minipage}{\linewidth}
+\begin{minipage}{0.47\linewidth}
+If the determinant is not zero, it is always possible to determine such trades ${\lambda_j}$, that the payout $W_i$ is a loss in any outcome.
+$$\det\ne0\implies\D$$
+\end{minipage}
+\hfill
+\begin{minipage}{0.45\linewidth}
+\centerline{\scalebox{0.85}{$\bm{\underbrace{\pr{A_1A_2}=\pr{A_1|A_2}\cdot\pr{A_2}}_\B}$}}
+
+Thus
+\begingroup
+\setlength{\abovedisplayskip}{2pt}
+\setlength{\belowdisplayskip}{2pt}
+$$\det=0\impliedby\neg\D$$
+$$\iff$$
+$$\B\impliedby\neg\D$$
+\endgroup
+\end{minipage}
+\end{minipage}
+\end{frame}
+
+\begin{frame}{$\C^*\implies\neg\D;\quad$ Describing the trades}
+\begin{minipage}{\linewidth}
+\begin{minipage}{0.45\linewidth}
+\begingroup
+\setlength{\abovedisplayskip}{3pt}
+\setlength{\belowdisplayskip}{3pt}
+The derived model in $\C$ is easily extended to cover the trade on $A_1A_2$ ; a trade on a simple event with indicator an $I_{A_1A_2}$. 
+
+\phantom{.}
+\endgroup
+\end{minipage}
+\hfill
+\begin{minipage}{0.45\linewidth}
+The conditional trade on $A_1|A_2$ costing $\pr{A_1|A_2}$ and paying $1$ if $A_1$, but only if $A_2$ is described by,
+$$I_{A_2}(I_{A_1}-\pr{A_1|A_2})$$
+\end{minipage}
+\end{minipage}
+\vfill
+\begin{minipage}{\linewidth}
+After allowing trades on all events, the complete payout is described by
+$$W=\underbrace{\sum_{i=1}^2\lambda_i(I_{A_i}-\pr{A_i})}_{W^\prime}+\underbrace{\lambda_3(I_{A_1A_2}-\pr{A_1A_2})}_{W_{1,2}}+\underbrace{\lambda_4I_{A_2}(I_{A_1}-\pr{A_1|A_2})}_{W_{1|2}}$$
+\end{minipage}
+\end{frame}
+
+\begin{frame}{$\C^*\implies\neg\D;\quad$ Implications of $E(W)$}
+\begin{minipage}{\linewidth}
+\begin{minipage}{0.3\linewidth}
+By applying the same mechanics as in the proof of $\C$, we see that both $E(W^\prime)$ and $E(W_{1,2})$ are zero.
+\end{minipage}
+\hfill
+\begin{minipage}{0.65\linewidth}
+\begingroup
+\setlength{\abovedisplayskip}{3pt}
+\setlength{\belowdisplayskip}{3pt}
+\begin{equation*}
+\begin{split}
+E(W_{1|2})&=E\Big[\lambda_4I_{A_2}(I_{A_1}-\pr{A_1|A_2})\Big]\\
+&=\lambda_4E(I_{A_2}I_{A_1})-\lambda_4E(I_{A_2}\pr{A_1|A_2})\\
+&=\lambda_4\Big(E(I_{A_2}I_{A_1})-\pr{A_1|A_2}E(I_{A_2})\Big)\\
+&=\lambda_4\Big(\pr{A_1A_2}-\pr{A_1|A_2}\pr{A_2}\Big)
+\end{split}
+\end{equation*}
+\endgroup
+\end{minipage}
+\vfill
+% \bigskip
+% \hfill
+
+% \begin{minipage}{\linewidth}
+% $$E(W_{1,2})=0\implies\neg\D$$
+% $$\iff$$
+% $$\scalebox{0.9}{$\bm{\B\sim\pr{A_1A_2}=\pr{A_1|A_2}\cdot\pr{A_2}}$}$$
+% \end{minipage}
+\end{minipage}
+\vfill
+\begin{minipage}{\linewidth}
+%$$\scalebox{0.9}{$\bm{\B\sim\pr{A_1A_2}=\pr{A_1|A_2}\cdot\pr{A_2}}$}$$
+If we require $\overbrace{\pr{A_1A_2}=\pr{A_1|A_2}\cdot\pr{A_2}}^\B$, we have $E(W)=0$ and can again apply the Corollary; i.e. no dutch book. Thus
+$$\B\implies\neg\D.$$
+\end{minipage}
+\end{frame}
+
+\begin{frame}{$\C^*\iff\neg\D;\quad$ Theorem of Conditional Coherence}
+\begin{minipage}[]{0.5\linewidth}
+{\textbf{Theorem} (Coherence$^*$)}
+Your prices $\pr{A_i}$ and $\pr{A_i|A_j}$ at which you are willing to buy and sell tickets cannot lead you into a dutch book if and only if they are coherent,
+
+$$\C^*\iff\neg\D.$$
+\end{minipage}
+\hfill
+\begin{minipage}[]{0.3\linewidth}
+%\centering
+$$
+\C^*
+=
+\left\{\!\begin{matrix}
+\pr{A_i}\ge0, \\[1ex]
+\pr{A_{C}}=1, \\[1ex]
+FA,\\[1ex]
+\B\\[1ex]
+\end{matrix}\right\}
+\quad
+$$
+\end{minipage}
+\end{frame}
+
+\begin{frame}{Conclusions: Uncertain and Random events}
+%There was no mentioning of randomness.
+\begin{minipage}{\linewidth}
+\begin{minipage}{0.6\linewidth}
+\begin{minipage}{\linewidth}
+There was no mention of randomness during our construction. Coherence ($\C^*$) allows us to treat all uncertain ($\mathcal{U}$) events about which we hold subjective beliefs, while the frequentist interpretation of probability can only treat random events ($\mathcal{R}$).
+\end{minipage}
+
+\vfill
+
+\bigskip
+
+\begin{minipage}{\linewidth}
+\begingroup
+\setlength{\abovedisplayskip}{2pt}
+\setlength{\belowdisplayskip}{2pt}
+Note that the claim
+$$\textbf{random}\subset\textbf{uncertain}$$
+%$$\mathcal{R}\subset\mathcal{U}$$
+is justified  by de Finetti's theorem.
+\endgroup
+\end{minipage}
+\end{minipage}
+\hfill
+\begin{minipage}{0.35\linewidth}
+\centering
+\begin{minipage}{\linewidth}
+\tikzset{set/.style={draw,circle,inner sep=0pt,align=center}}
+\begin{tikzpicture}[scale=1,transform shape]
+  (nat) at (0,-0.4)  (rea) {};
+\node[set,fill=blue!20,text width=2.2cm,label={[below=60pt of int]$\mathcal{U}$}] 
+  (int) at (0,-0.2)  {};
+\node[set,fill=red!20,text width=1cm] (nat) at (0,0.2) {$\mathcal{R}$};
+
+\draw[decoration={brace,mirror,raise=5pt, amplitude=10pt},decorate]
+  (-1,1) -- node[left=15pt] {$\C^*$} (-1,-1.5);
+\end{tikzpicture}
+\end{minipage}
+\hfill
+\bigskip
+
+\begin{minipage}{\linewidth}
+\begin{itemize}
+\item[$\mathcal{R}$] are random events\\
+\item[$\mathcal{U}$] are uncertain events
+\end{itemize}
+\end{minipage}
+\end{minipage}
+\end{minipage}
+\end{frame}
+
+\end{document}
+\grid
