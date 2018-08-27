@@ -1,0 +1,100 @@
+\documentclass{beamer} %[handout]
+\usetheme{CambridgeUS}
+\usecolortheme{whale}
+\usepackage{color}
+\usepackage{xcolor}
+\usepackage[makeroom]{cancel}
+\usepackage{graphicx} 
+\setbeamercolor{frametitle}{fg=black}
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{fancyvrb}
+\usepackage{listings}
+\usepackage{tikz}
+\usepackage[utf8]{inputenc}
+\usepackage[slovene]{babel}
+\usepackage{bm}
+
+\usetikzlibrary{shapes}
+
+\usetikzlibrary{decorations.text,decorations.pathreplacing}
+
+\lstset{frame=tb,
+  language=R,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\tiny\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+%  keywordstyle=\color{blue},
+%  identifierstyle=\color{yellow},
+  breaklines=true,
+    literate={->}{$\rightarrow$}{2}
+           {°}{$\epsilon$}{1},
+  breakatwhitespace=true
+  tabsize=3
+}
+
+\usetikzlibrary{arrows,positioning} 
+\tikzset{
+    %Define standard arrow tip
+    >=stealth',
+    %Define style for boxes
+    punkt/.style={
+           rectangle,
+           rounded corners,
+           draw=black, very thick,
+           text width=6.5em,
+           minimum height=2em,
+           text centered},
+    % Define arrow style
+    pil/.style={
+           ->,
+           thick,
+           shorten <=2pt,
+           shorten >=2pt,}
+}
+
+\makeatletter
+\def\th@mystyle{%
+    \normalfont % body font
+    \setbeamercolor{block title example}{bg=orange,fg=white}
+    \setbeamercolor{block body example}{bg=orange!20,fg=black}
+    \def\inserttheoremblockenv{exampleblock}
+  }
+\makeatother
+\theoremstyle{mystyle}
+\newtheorem*{remark}{Primer}
+
+\makeatletter
+\def\th@mystylet{%
+    \normalfont % body font
+    \setbeamercolor{block title example}{bg=purple,fg=white}
+    \setbeamercolor{block body example}{bg=purple!20,fg=black}
+    \def\inserttheoremblockenv{exampleblock}
+  }
+\makeatother
+\theoremstyle{mystylet}
+\newtheorem*{analysis}{Primer}
+
+\defbeamertemplate{description item}{align left}{\insertdescriptionitem\hfill}
+
+\date{2018}
+\author[Bayesian statistics]{\v{Z}iga Sajovic \\
+\href{mailto:ziga.sajovic@xlab.si}{ziga.sajovic@xlab.si}}
+\institute{\href{https://www.xlab.si}{XLAB d.o.o.}}
+
+\linespread{1.2}
+\renewcommand{\thefootnote}{\roman{footnote}}
+\newcommand{\K}{\mathcal{K}}
+\newcommand{\D}{\mathcal{D}}
+\newcommand{\C}{\mathcal{C}}
+\newcommand{\B}{\mathcal{B}}
+\newcommand{\pr}[1]{P\{#1\}}
+\addto\captionsslovene{\renewcommand{\proofname}{Proof}}
+%\setbeameroption{show notes}
